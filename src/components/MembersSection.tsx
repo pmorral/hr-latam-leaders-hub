@@ -1,5 +1,12 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
 
 const members = [
   {
@@ -65,18 +72,32 @@ export default function MembersSection() {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {members.map((member) => (
-            <div key={member.name} className="flex flex-col items-center p-6 bg-gray-50 rounded-lg border border-gray-100 hover:shadow-md transition-shadow duration-300">
-              <Avatar className="w-24 h-24 border-2 border-blue-100">
-                <AvatarImage src={member.image} alt={member.name} />
-                <AvatarFallback>{member.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
-              </Avatar>
-              <h3 className="mt-4 font-bold text-lg text-gray-900">{member.name}</h3>
-              <p className="text-gray-600 text-center">{member.title}</p>
-              <Badge variant="gold" className="mt-2">{member.country}</Badge>
-            </div>
-          ))}
+        <div className="relative px-8">
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-2 md:-ml-4">
+              {members.map((member) => (
+                <CarouselItem key={member.name} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                  <div className="flex flex-col items-center p-6 bg-gray-50 rounded-lg border border-gray-100 hover:shadow-md transition-shadow duration-300">
+                    <Avatar className="w-20 h-20 border-2 border-blue-100">
+                      <AvatarImage src={member.image} alt={member.name} />
+                      <AvatarFallback>{member.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+                    </Avatar>
+                    <h3 className="mt-4 font-bold text-lg text-gray-900">{member.name}</h3>
+                    <p className="text-gray-600 text-center text-sm">{member.title}</p>
+                    <Badge variant="gold" className="mt-2">{member.country}</Badge>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="left-0" />
+            <CarouselNext className="right-0" />
+          </Carousel>
         </div>
         
         <div className="mt-16 flex justify-center">
