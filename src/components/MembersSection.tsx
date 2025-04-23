@@ -1,4 +1,3 @@
-
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 
@@ -27,6 +26,30 @@ const members = [
     country: "Argentina",
     image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=200&q=80"
   },
+  {
+    name: "Ana Santos",
+    title: "Head of HR at Retail Group",
+    country: "Chile",
+    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=200&q=80"
+  },
+  {
+    name: "Ricardo Torres",
+    title: "People Operations Director at FinTech Now",
+    country: "Peru",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=200&q=80"
+  },
+  {
+    name: "Isabella Martinez",
+    title: "HR VP at Energy Solutions",
+    country: "Ecuador",
+    image: "https://images.unsplash.com/photo-1607746882042-944635dfe10e?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=200&q=80"
+  },
+  {
+    name: "Luis Rodriguez",
+    title: "Talent Director at Tech Hub",
+    country: "Venezuela",
+    image: "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=200&q=80"
+  }
 ]
 
 export default function MembersSection() {
@@ -42,7 +65,7 @@ export default function MembersSection() {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {members.map((member) => (
             <div key={member.name} className="flex flex-col items-center p-6 bg-gray-50 rounded-lg border border-gray-100 hover:shadow-md transition-shadow duration-300">
               <Avatar className="w-24 h-24 border-2 border-blue-100">
